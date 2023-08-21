@@ -5,7 +5,7 @@ class Deck {
         Deck(); // Private constructor (only Deck.cpp can create Deck objects
         int drawCard();
         void printDeck();
-    private:
         int generateRandomNumber(int min, int max);
+    private:
         int cards[52];
 };

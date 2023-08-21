@@ -1,8 +1,8 @@
-#include "Dealer.hpp"
+#include "Player.hpp"
 #include <iostream>
 
 
-void Dealer::drawCard() {
+void Player::drawCard() {
     int card = deck.drawCard();
     if (card == -1) {
         std::cout << "No more cards in the deck, creating a new deck" << std::endl;
@@ -19,15 +19,11 @@ void Dealer::drawCard() {
     nrCardsDrawn++;
 }
 
-void Dealer::printDeck() {
-    deck.printDeck();
-}
-
-int Dealer::getCardSum() {
-    return currentCardSum;
-}
-
-void Dealer::resetHand() {
+void Player::resetRound() {
     currentCardSum = 0;
     nrCardsDrawn = 0;
+}
+
+int Player::getCardSum() {
+    return currentCardSum;
 }

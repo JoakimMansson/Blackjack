@@ -8,11 +8,11 @@ Deck::Deck() {
 
     for(int i = 0; i < 52; i++) {
         int randomNumber = Deck::generateRandomNumber(1, 13);
-        while (nrCards[randomNumber - 1] == 4) {
+        while (nrCards[randomNumber-1] >= 4) {
             randomNumber = Deck::generateRandomNumber(1, 13);
         }
-
-        cards[i] = Deck::generateRandomNumber(1, 13);
+        
+        cards[i] = randomNumber;
         nrCards[randomNumber - 1]++;
     }
 }
@@ -25,7 +25,7 @@ int Deck::drawCard() {
 
 void Deck::printDeck() {
     for (int i = 0; i < 52; i++) {
-        std::cout << cards[i];
+        std::cout << cards[i] << " ";
     }
     std::cout << std::endl;
 }
