@@ -5,7 +5,7 @@
 class Dealer {
 
     public:
-        Dealer(Deck& deck, int stopAt): deck(deck), stopAt(stopAt) {};
+        Dealer(Deck& deck): deck(deck) {};
         void drawCard();
         void printDeck();
         int getCardSum();

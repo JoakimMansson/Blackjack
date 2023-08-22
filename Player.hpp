@@ -6,8 +6,10 @@ class Player
     public:
         Player(Deck& cardDeck): deck(cardDeck) {};
         void drawCard();
-        void resetRound();
+        void resetHand();
         int getCardSum();
+
+        bool hasAnAce = false;
 
     private:
         Deck deck;

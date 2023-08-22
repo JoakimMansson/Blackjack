@@ -11,7 +11,11 @@ void Player::drawCard() {
     }
 
     if (card == 1 && currentCardSum + 11 > 21) { // If an Ace
-        currentCardSum += 1;
+        hasAnAce = true;
+        if (currentCardSum + 11 > 21)
+        {
+            currentCardSum += 1;
+        }
     }
     else {
         currentCardSum += card;
@@ -19,7 +23,7 @@ void Player::drawCard() {
     nrCardsDrawn++;
 }
 
-void Player::resetRound() {
+void Player::resetHand() {
     currentCardSum = 0;
     nrCardsDrawn = 0;
 }
