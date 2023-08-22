@@ -11,11 +11,10 @@ void Player::drawCard() {
     }
 
     if (card == 1 && currentCardSum + 11 > 21) { // If an Ace
-        hasAnAce = true;
-        if (currentCardSum + 11 > 21)
-        {
-            currentCardSum += 1;
-        }
+        currentCardSum += 1;
+    }
+    else if (card >= 11) {
+        currentCardSum += 10;
     }
     else {
         currentCardSum += card;

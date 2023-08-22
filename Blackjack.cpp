@@ -11,7 +11,7 @@ void Blackjack::playGame() {
     std::cout << "Dealer has: " << dealer.getCardSum() << std::endl;
 
     if (Blackjack::canDoubleDown()) {
-        std::cout << "Player turn (stand, hit, double) " << player.getCardSum() << std::endl;
+        std::cout << "Player turn (stand, hit, double) " << std::endl;
         
         std::string playerAction;
         std::getline(std::cin, playerAction);  // Reads an entire line of input into the 'playerAction' variable
@@ -27,8 +27,14 @@ void Blackjack::playGame() {
             std::cout << "Player has: " << player.getCardSum() << std::endl;
             std::cout << "Dealer has: " << dealer.getCardSum() << std::endl;
         }
+        else if (playerAction == "hit") {
+            player.drawCard();
+            std::cout << "Player has: " << player.getCardSum() << std::endl;
+            std::cout << "Dealer has: " << dealer.getCardSum() << std::endl;
+        }
 
-        while (playerAction != "stand" && player.getCardSum() < 21) {
+
+        while (playerAction != "stand" && playerAction != "double" && player.getCardSum() < 21) {
             std::cout << "Player turn (stand, hit) " << player.getCardSum() << std::endl;
             std::getline(std::cin, playerAction);
             player.drawCard();
@@ -44,8 +50,12 @@ void Blackjack::playGame() {
 
         while (playerAction != "stand" && playerAction != "hit")
         {
-            std::cout << "[FAULTY INPUT] Player turn (stand, hit) " << player.getCardSum() << std::endl;
+            std::cout << "[FAULTY INPUT] Player turn (stand, hit) " << std::endl;
             std::getline(std::cin, playerAction);  // Reads an entire line of input into the 'playerAction' variable
+        }
+
+        if (playerAction == "hit") {
+            player.drawCard();
         }
 
         std::cout << "Player has: " << player.getCardSum() << std::endl;
