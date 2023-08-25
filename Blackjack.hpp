@@ -17,7 +17,7 @@ class Blackjack {
         bool canSplit();
         bool canDoubleDown();
         bool firstRoundFinished = false;
-        Deck deck;
+        Deck* deck = new Deck();
         Player player{deck};
         Dealer dealer{deck};
 };
